@@ -1,5 +1,5 @@
 set nocompatible        " Use Vim defaults (much better!)
-set bs=2                " allow backspacing over everything in insert mode
+set backspace=indent,eol,start "allow backspacing over everything in insert mode
 "set ai                 " always set autoindenting on
 "set backup             " keep a backup file
 set viminfo='20,\"50    " read/write a .viminfo file, don't store more
