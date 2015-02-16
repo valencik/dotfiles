@@ -23,6 +23,7 @@ brew update
 echo "${BOOTSTRAP} Installing formulae and casks from .brewfile..."
 brew tap homebrew/brewdler
 brew brewdle
+brew cleanup
 
 echo "${BOOTSTRAP} Installing python libraries from .pipfile..."
 pip3 install --upgrade -r .pipfile
@@ -35,4 +36,3 @@ echo "${BOOTSTRAP} Running .dock script..."
 
 echo "${BOOTSTRAP} Running .osx script..."
 ./.osx
-
