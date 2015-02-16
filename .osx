@@ -392,8 +392,11 @@ sudo mdutil -i on / > /dev/null
 sudo mdutil -E / > /dev/null
 
 ###############################################################################
-# Terminal & iTerm 2                                                          #
+# Shell & Terminal & iTerm 2                                                  #
 ###############################################################################
+
+# Set default shell to zsh
+chsh -s /bin/zsh
 
 # Only use UTF-8 in Terminal.app
 defaults write com.apple.terminal StringEncodings -array 4
@@ -450,8 +453,10 @@ EOD
 #defaults write com.apple.terminal FocusFollowsMouse -bool true
 #defaults write org.x.X11 wm_ffm -bool true
 
-# Install the Solarized Dark theme for iTerm
-open "${HOME}/init/Solarized Dark.itermcolors"
+# Install iTerm2 plist
+cp .plists/com.googlecode.iterm2.plist.xml1 .plists/com.googlecode.iterm2.plist 
+plutil -convert binary1 .plists/com.googlecode.iterm2.plist
+mv .plists/com.googlecode.iterm2.plist ~/Library/Preferences/
 
 
 ###############################################################################
