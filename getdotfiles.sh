@@ -6,4 +6,5 @@ cd $HOME
 # Get the dotfiles in place
 curl -fsSLO https://github.com/valencik/dotfiles/archive/master.zip
 unzip master.zip; rm master.zip
-rsync --exclude-from 'rsync-excludes.txt' -avh --no-perms dotfiles-master/ ~;
+rsync --exclude ".git" --exclude "README.md" --exclude "bootstrap.sh" \
+    --exclude "getdotfiles.sh" -avh --no-perms dotfiles-master/ ~;
