@@ -29,7 +29,7 @@ echo "${BOOTSTRAP} Installing python libraries from .pipfile..."
 pip3 install --upgrade -r .pipfile
 
 echo "${BOOTSTRAP} Running .gitconfig script..."
-./.gitconfig
+./.gitsetup
 
 echo "${BOOTSTRAP} Running .dock script..."
 ./.dock
