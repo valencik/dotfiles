@@ -1,0 +1,10 @@
+#!/bin/bash -e
+dockutil --remove all
+dockutil --no-restart --add ~/Applications/FirefoxDeveloperEdition.app
+dockutil --no-restart --add /Applications/Safari.app/
+dockutil --no-restart --add ~/Applications/iTerm.app
+dockutil --no-restart --add /Applications/Messages.app
+dockutil --no-restart --add /Applications/TextEdit.app/
+dockutil --no-restart --add ~/Applications/VLC.app
+
+killall -KILL Dock
