@@ -23,6 +23,7 @@ brew 'vim', args: ['with-python3']
 brew 'wget'
 brew 'youtube-dl'
 brew 'zsh'
+brew 'zsh-completions'
 cask 'basictex'
 cask 'dash'
 cask 'dropbox'
