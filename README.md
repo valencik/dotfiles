@@ -1,8 +1,15 @@
 Dotfiles
 ========
 
-These dotfiles are quite barebones at the moment.
+These dotfiles love:
+- brew
+- zsh
+- python3
+- hammerspoon
 
-I've thrown out all my old dotfiles and am rebuilding, taking the chance to reevaluate my settings.
+Thanks
+------
 
-This dotfile repo will make use of [OSXetup](https://github.com/astronomerdamo/OSXetup) to enable some nonstandard dotfiles.
+Thanks to astronomerdamo for his work and collaboration on [OSXetup](https://github.com/astronomerdamo/OSXetup)
+
+Thanks to BrianGilbert for his [hammerspoon config](https://github.com/BrianGilbert/.hammerspoon)
