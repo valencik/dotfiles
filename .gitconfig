@@ -1,0 +1,6 @@
+#!/bin/bash -e
+
+git config --global user.name "Andrew Valencik"
+git config --global user.email "andrew.valencik@gmail.com"
+git config --global credential.helper osxkeychain
+git config --global push.default simple

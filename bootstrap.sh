@@ -22,3 +22,6 @@ pip3 install --upgrade -r .pipfile
 
 echo "${BOOTSTRAP} Running .osx script..."
 ./.osx
+
+echo "${BOOTSTRAP} Running .gitconfig script..."
+./.gitconfig
