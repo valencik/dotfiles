@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash
 # Bootstrap a clean OS X install
 
 # Define mesage output types and colours
