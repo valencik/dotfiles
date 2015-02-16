@@ -15,6 +15,7 @@ brew doctor
 brew update
 
 echo "${BOOTSTRAP} Installing formulae and casks from .brewfile..."
+brew tap homebrew/brewdler
 brew brewdle
 
 echo "${BOOTSTRAP} Installing python libraries from .pipfile..."
