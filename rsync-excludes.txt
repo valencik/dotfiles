@@ -1,0 +1,5 @@
+.git
+README.md
+bootstrap.sh
+getdotfiles.sh
+rsync-excludes.txt
