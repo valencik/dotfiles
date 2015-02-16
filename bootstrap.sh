@@ -27,8 +27,12 @@ brew brewdle
 echo "${BOOTSTRAP} Installing python libraries from .pipfile..."
 pip3 install --upgrade -r .pipfile
 
+echo "${BOOTSTRAP} Running .gitconfig script..."
+./.gitconfig
+
+echo "${BOOTSTRAP} Running .dock script..."
+./.dock
+
 echo "${BOOTSTRAP} Running .osx script..."
 ./.osx
 
-echo "${BOOTSTRAP} Running .gitconfig script..."
-./.gitconfig
