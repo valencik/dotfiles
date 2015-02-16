@@ -5,6 +5,9 @@
 ERROR="$(tput setaf 1)ERROR:$(tput sgr 0)"
 BOOTSTRAP="$(tput setaf 2)BOOTSTRAP:$(tput sgr 0)"
 
+# Change to home folder
+cd $HOME
+
 # Ask for the administrator password upfront
 sudo -v
 
