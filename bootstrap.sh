@@ -28,6 +28,9 @@ brew tap homebrew/brewdler
 brew brewdle
 brew cleanup
 
+echo "${BOOTSTRAP} Installing oh-my-zsh"
+curl -L http://install.ohmyz.sh | sh
+
 echo "${BOOTSTRAP} Installing python libraries from .pipfile..."
 pip3 install --upgrade -r .pipfile
 
