@@ -19,3 +19,6 @@ brew brewdle
 
 echo "${BOOTSTRAP} Installing python libraries from .pipfile..."
 pip3 install --upgrade -r .pipfile
+
+echo "${BOOTSTRAP} Running .osx script..."
+./.osx
