@@ -150,7 +150,7 @@ hotkey.bind(mashshift, 'LEFT', grid.resizeWindowThinner)
 hotkey.bind(mash, 'N', grid.pushWindowNextScreen)
 hotkey.bind(mash, 'P', grid.pushWindowPrevScreen)
 
--- hotkey.bind(mashshift, 'M', grid.maximizeWindow)
+hotkey.bind(mashshift, 'M', grid.maximizeWindow)
 --
 -- /Window management
 --
