@@ -93,7 +93,7 @@ hs.hotkey.bind(mash, "S", function() movewin("down") end)
 -- Open Applications
 --
 local function openchrome()
-  application.launchOrFocus("Google Chrome")
+  application.launchOrFocus("Sunrise")
 end
 
 local function openff()
@@ -101,12 +101,17 @@ local function openff()
 end
 
 local function openmail()
-  application.launchOrFocus("Airmail Beta")
+  application.launchOrFocus("Mailbox (Beta)")
+end
+
+local function opentodoist()
+  application.launchOrFocus("Todoist")
 end
 
 hotkey.bind(mash, 'F', openff)
 hotkey.bind(mash, 'C', openchrome)
 hotkey.bind(mash, 'M', openmail)
+hotkey.bind(mash, 'T', opentodoist)
 --
 -- /Open Applications
 --
