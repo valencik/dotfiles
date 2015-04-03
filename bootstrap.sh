@@ -22,6 +22,7 @@ brew update
 
 echo "${BOOTSTRAP} Installing formulae and casks from .brewfile..."
 brew tap homebrew/brewdler
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 brew brewdle
 brew cleanup
 brew cask cleanup
