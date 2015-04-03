@@ -24,6 +24,7 @@ echo "${BOOTSTRAP} Installing formulae and casks from .brewfile..."
 brew tap homebrew/brewdler
 brew brewdle
 brew cleanup
+brew cask cleanup
 
 echo "${BOOTSTRAP} Installing oh-my-zsh"
 curl -L http://install.ohmyz.sh | sh
