@@ -34,7 +34,7 @@ curl -L http://install.ohmyz.sh | sh
 echo "${BOOTSTRAP} Installing python libraries from .pipfile..."
 pip3 install --upgrade -r .pipfile
 
-echo "${BOOTSTRAP} Running .gitconfig script..."
+echo "${BOOTSTRAP} Running .gitsetup script..."
 ./.gitsetup
 
 echo "${BOOTSTRAP} Running .dock script..."
