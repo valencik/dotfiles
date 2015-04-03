@@ -1,4 +1,4 @@
-#!/bin.bash -e
+#!/bin/bash -e
 
 # Symlink dotfiles to home folder
 ln -s $(pwd)/.zshrc ~/.zshrc
