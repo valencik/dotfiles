@@ -12,3 +12,4 @@ tornado
 jsonschema
 beautifulsoup4
 rpy2
+theano
