@@ -8,7 +8,7 @@ set backspace=indent,eol,start
 set viminfo='20,\"50
 
 " keep 50 lines of command line history
-set history=50
+set history=500
 
 " show the cursor position all the time
 set ruler
@@ -16,6 +16,10 @@ set ruler
 " Turn syntax and line number on
 syntax on
 set number
+set relativenumber
+
+" Set list characters for viewing whitespace
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
 " Force markdown hilighting on *.md files
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
