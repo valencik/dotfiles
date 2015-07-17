@@ -23,3 +23,7 @@ set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
 " Force markdown hilighting on *.md files
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" Custom colouring of makeshift comments in MD files
+highlight PandocComment ctermbg=NONE ctermfg=blue
+match PandocComment /^%- .*$/
