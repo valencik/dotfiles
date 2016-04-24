@@ -27,3 +27,7 @@ export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X
 # Aliases
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
+
+# Function
+sus () {sort $* | uniq -c | sort -nr}
+jql () {jq -C "." <$* | less}
