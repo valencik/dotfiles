@@ -41,3 +41,6 @@ source /usr/local/bin/virtualenvwrapper_lazy.sh
 
 # Starting directory
 cd ~/affinio
+
+# FZF setup
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
