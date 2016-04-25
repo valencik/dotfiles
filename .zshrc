@@ -34,3 +34,7 @@ jql () {jq -C "." <$* | less}
 
 # Enable alt+. in other terminals
 bindkey '\e.' insert-last-word
+
+# Python Virtual Environment setup
+VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3.5
+source /usr/local/bin/virtualenvwrapper_lazy.sh
