@@ -30,3 +30,6 @@ match PandocComment /^%- .*$/
 
 " fzf
 set rtp+=/usr/local/opt/fzf
+
+" Autowrap git commit messages to 72 characters
+au FileType gitcommit setlocal tw=72
