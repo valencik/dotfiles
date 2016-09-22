@@ -31,6 +31,7 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 # Function
 sus () {sort $* | uniq -c | sort -nr}
 jql () {jq -C "." <$* | less}
+got () {cowsay "got $*?"}
 
 # Enable alt+. in other terminals
 bindkey '\e.' insert-last-word
