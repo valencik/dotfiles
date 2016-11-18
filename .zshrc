@@ -50,3 +50,8 @@ cd ~/affinio
 
 # FZF setup
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# golang setup
+export GOPATH=$HOME/golang
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin
