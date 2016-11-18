@@ -15,7 +15,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin:/Users/andrew/bin"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin:/Users/andrew/bin:/Users/andrew/anaconda3/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
