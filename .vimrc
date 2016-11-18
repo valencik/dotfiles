@@ -33,3 +33,10 @@ set rtp+=/usr/local/opt/fzf
 
 " Autowrap git commit messages to 72 characters
 au FileType gitcommit setlocal tw=72
+
+" python settings
+set shiftwidth=4
+set tabstop=4
+set expandtab
+filetype plugin on
+"filetype indent on
