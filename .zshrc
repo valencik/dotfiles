@@ -32,6 +32,11 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 sus () {sort $* | uniq -c | sort -nr}
 jql () {jq -C "." <$* | less}
 got () {cowsay "got $*?"}
+reddit () {
+  curl --silent --url "https://www.reddit.com/r/"$1"/.json" \
+  --user-agent "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/7046A194A" |
+  jq --raw-output '.data.children[].data| select(.stickied == false) | [.title, .url, .score, .created] | @tsv'
+}
 
 # Enable alt+. in other terminals
 bindkey '\e.' insert-last-word
