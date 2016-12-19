@@ -21,11 +21,8 @@ brew doctor
 brew update
 
 echo "${BOOTSTRAP} Installing formulae and casks from .brewfile..."
-brew tap homebrew/brewdler
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-brew brewdle
+xargs <brewlist.txt brew install
 brew cleanup
-brew cask cleanup
 
 echo "${BOOTSTRAP} Installing oh-my-zsh"
 curl -L http://install.ohmyz.sh | sh
