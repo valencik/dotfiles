@@ -9,7 +9,7 @@ ZSH_THEME="sunrise-w-job-count"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(gitfast brew mosh pip)
+plugins=(gitfast pip)
 
 source $ZSH/oh-my-zsh.sh
 
