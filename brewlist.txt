@@ -19,7 +19,8 @@ pandoc
 parallel
 python
 python3
-sbt scala
+sbt
+scala
 shellcheck
 sqlite
 tmux
