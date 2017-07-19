@@ -1,5 +1,3 @@
-awscli
-cloc
 coreutils
 cowsay
 curl
@@ -13,17 +11,20 @@ git
 gnupg2
 imagemagick
 jq
+loc
 mpv
 node
 pandoc
 parallel
 python
 python3
+reattach-to-user-namespace
 sbt
 scala
 shellcheck
 sqlite
 tmux
+tree
 vim
 wget
 youtube-dl
