@@ -47,7 +47,7 @@ bindkey '\e.' insert-last-word
 #source /usr/local/bin/virtualenvwrapper_lazy.sh
 
 # Starting directory
-cd ~/affinio
+cd ~/projects/
 
 # FZF setup
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
