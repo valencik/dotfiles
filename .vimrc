@@ -40,22 +40,3 @@ set tabstop=4
 set expandtab
 filetype plugin on
 "filetype indent on
-
-" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
-call plug#begin('~/.vim/plugged')
-
-Plug 'ensime/ensime-vim'
-
-" Initialize plugin system
-call plug#end()
-
-" Typecheck after writing
-autocmd BufWritePost *.scala silent :EnTypeCheck
-
-" Unmap space and then set as leader
-"nnoremap <Space> <nop>
-let maplocalleader=" "
-autocmd FileType scala,java
-          \ nnoremap <buffer> <silent> <LocalLeader>t :EnType<CR> |
-          \ nnoremap <buffer> <silent> <LocalLeader>T :EnTypeCheck<CR> |
-          \ nnoremap <LocalLeader>df :EnDeclaration<CR>
