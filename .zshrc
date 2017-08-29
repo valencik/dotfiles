@@ -9,7 +9,7 @@ ZSH_THEME="sunrise-w-job-count"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(gitfast brew mosh pip)
+plugins=(gitfast pip)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -37,16 +37,17 @@ reddit () {
   --user-agent "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/7046A194A" |
   jq --raw-output '.data.children[].data| select(.stickied == false) | [.title, .url, .score, .created] | @tsv'
 }
+msay () {say "$*" -o output && ffmpeg -i output.aiff -y ~/Desktop/output.mp3 && rm output.aiff}
 
 # Enable alt+. in other terminals
 bindkey '\e.' insert-last-word
 
 # Python Virtual Environment setup
-VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3.5
-source /usr/local/bin/virtualenvwrapper_lazy.sh
+#VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3.5
+#source /usr/local/bin/virtualenvwrapper_lazy.sh
 
 # Starting directory
-cd ~/affinio
+cd ~/projects/
 
 # FZF setup
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

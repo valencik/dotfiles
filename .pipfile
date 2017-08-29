@@ -4,11 +4,3 @@ livestreamer
 requests
 ipython
 Flask
-pymongo
-networkx
-matplotlib
-pyzmq
-tornado
-jsonschema
-beautifulsoup4
-rpy2
