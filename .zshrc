@@ -31,6 +31,8 @@ export PATH="$PATH:$PERSONALPATH"
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 
+alias lock="pmset displaysleepnow"
+
 # Function
 sus () {sort $* | uniq -c | sort -nr}
 jql () {jq -C "." <$* | less}
