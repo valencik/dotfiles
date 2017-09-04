@@ -1,42 +1,22 @@
-" Use Vim defaults (much better!)
-set nocompatible
+execute pathogen#infect()
 
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
-" read/write a .viminfo file, don't store more than 50 lines of registers
-set viminfo='20,\"50
-
-" keep 50 lines of command line history
-set history=500
-
-" show the cursor position all the time
-set ruler
-
-" Turn syntax and line number on
-syntax on
 set number
 set relativenumber
 
-" Set list characters for viewing whitespace
-set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
-
-" Force markdown hilighting on *.md files
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-
-" Custom colouring of makeshift comments in MD files
-highlight PandocComment ctermbg=NONE ctermfg=blue
-match PandocComment /^%- .*$/
-
-" fzf
+" Enable fzf in vim
 set rtp+=/usr/local/opt/fzf
 
 " Autowrap git commit messages to 72 characters
 au FileType gitcommit setlocal tw=72
 
-" python settings
-set shiftwidth=4
-set tabstop=4
-set expandtab
-filetype plugin on
-"filetype indent on
+" enable mouse support past the 220th column
+set ttymouse=sgr
+
+" Deal with Ruby
+" https://stackoverflow.com/questions/16902317/vim-slow-with-ruby-syntax-highlighting
+if v:version >= 703
+  " Note: Relative number is quite slow with Ruby, so is cursorline
+  autocmd FileType ruby setlocal ts=2 sts=2 sw=2 norelativenumber nocursorline
+else
+  autocmd FileType ruby setlocal ts=2 sts=2 sw=2 re=1 foldmethod=manual
+endif
