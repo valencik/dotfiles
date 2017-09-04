@@ -35,6 +35,8 @@ alias sayweather="curl http://dd.weather.gc.ca/citypage_weather/mp3/ON/s0000430_
 alias trimclip="pbpaste | perl -pe 's/^-[0-9]- .* » (.*?) +(\\d+ ↵|$)/\\$ \\1/' | pbcopy"
 alias lock="pmset displaysleepnow"
 
+alias gpsup='git push --set-upstream origin $(git_current_branch)'
+
 # Function
 sus () {sort $* | uniq -c | sort -nr}
 jql () {jq -C "." <$* | less}
