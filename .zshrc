@@ -31,6 +31,7 @@ export PATH="$PATH:$PERSONALPATH"
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 
+alias trimclip="pbpaste | perl -pe 's/^-[0-9]- .* » (.*?) +(\\d+ ↵|$)/\\$ \\1/' | pbcopy"
 alias lock="pmset displaysleepnow"
 
 # Function
