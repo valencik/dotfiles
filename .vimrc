@@ -26,3 +26,15 @@ if v:version >= 703
 else
   autocmd FileType ruby setlocal ts=2 sts=2 sw=2 re=1 foldmethod=manual
 endif
+
+" Command for rg grep
+" - fzf#vim#grep(command, with_column, [options], [fullscreen])
+"   :Rg  - Start fzf with hidden preview window that can be enabled with "?" key
+"   :Rg! - Start fzf in fullscreen and display the preview window above
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --ignore-case --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+nmap <Leader>f :Rg<space>
