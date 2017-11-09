@@ -3,6 +3,9 @@ execute pathogen#infect()
 set number
 set relativenumber
 
+" Setup tags
+set tags=./tags,tags,.git/tags;
+
 " Enable fzf in vim
 set rtp+=/usr/local/opt/fzf
 
