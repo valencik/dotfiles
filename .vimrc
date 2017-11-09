@@ -8,6 +8,9 @@ set tags=./tags,tags,.git/tags;
 
 " Enable fzf in vim
 set rtp+=/usr/local/opt/fzf
+nmap ; :Buffers<CR>
+nmap <Leader>r :Tags<CR>
+nmap <Leader>t :Files<CR>
 
 " Autowrap git commit messages to 72 characters
 au FileType gitcommit setlocal tw=72
