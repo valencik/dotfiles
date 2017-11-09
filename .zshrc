@@ -65,3 +65,5 @@ cd ~/projects/
 export GOPATH=$HOME/golang
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH/bin
+
+[ -f ~/.workrc ] && source ~/.workrc
