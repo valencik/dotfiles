@@ -1,4 +1,22 @@
-execute pathogen#infect()
+" Install vim-plug if not present
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Define plugins
+call plug#begin('~/.vim/plugged')
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-sleuth'
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-syntastic/syntastic'
+Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
+call plug#end()
 
 set number
 set relativenumber
