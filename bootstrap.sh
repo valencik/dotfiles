@@ -20,6 +20,9 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 brew doctor
 brew update
 
+echo "${BOOTSTRAP} Installing java cask"
+brew cask install java
+
 echo "${BOOTSTRAP} Installing formulae and casks from .brewfile..."
 xargs <brewlist.txt brew install
 brew cleanup
