@@ -33,8 +33,5 @@ pip3 install --upgrade -r .pipfile
 echo "${BOOTSTRAP} Running .gitsetup script..."
 ./.gitsetup
 
-echo "${BOOTSTRAP} Running .dock script..."
-./.dock
-
 echo "${BOOTSTRAP} Running .osx script..."
 ./.osx
