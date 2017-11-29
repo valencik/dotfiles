@@ -3,4 +3,4 @@ setuptools
 livestreamer
 requests
 ipython
-Flask
+jupyter
