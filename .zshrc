@@ -15,8 +15,9 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+me=$(whoami)
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
-export PERSONALPATH="/Users/$(whoami)/bin"
+export PERSONALPATH="/Users/$me/bin:/Users/$me/.cargo/bin"
 export PATH="$PATH:$PERSONALPATH"
 
 # export MANPATH="/usr/local/man:$MANPATH"
