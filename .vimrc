@@ -29,6 +29,7 @@ set rtp+=/usr/local/opt/fzf
 nmap ; :Buffers<CR>
 nmap <Leader>r :Tags<CR>
 nmap <Leader>t :Files<CR>
+nmap <Leader>g :GFiles<CR>
 
 " Autowrap git commit messages to 72 characters
 au FileType gitcommit setlocal tw=72
