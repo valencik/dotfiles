@@ -21,7 +21,7 @@ export PATH="$PATH:$PERSONALPATH"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-export JAVA_HOME=$(/usr/libexec/java_home -v 9)
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -36,6 +36,7 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 alias sayweather="curl http://dd.weather.gc.ca/citypage_weather/mp3/ON/s0000430_sa_e.mp3 | mpv -"
 alias trimclip="pbpaste | perl -pe 's/^-[0-9]- .* » (.*?) +(\\d+ ↵|$)/\\$ \\1/' | pbcopy"
 alias lock="pmset displaysleepnow"
+alias gctags="git ls-files | /usr/local/opt/universal-ctags/bin/ctags --extras=+f -L-"
 
 alias gpsup='git push --set-upstream origin $(git_current_branch)'
 
