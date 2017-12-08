@@ -55,9 +55,6 @@ msay () {say "$*" -o output && ffmpeg -i output.aiff -y ~/Desktop/output.mp3 && 
 # Enable alt+. in other terminals
 bindkey '\e.' insert-last-word
 
-# Starting directory
-cd ~/projects/
-
 # FZF setup
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -67,3 +64,6 @@ export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH/bin
 
 [ -f ~/.workrc ] && source ~/.workrc
+
+# Starting directory
+cd ~/projects/
