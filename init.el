@@ -17,6 +17,8 @@
 
 ;; modes
 (electric-indent-mode 0)
+(show-paren-mode t)
+(global-linum-mode t)
 
 ;; global keybindings
 (global-unset-key (kbd "C-z"))
@@ -39,50 +41,52 @@
   (package-install 'use-package))
 (require 'use-package)
 
+;; Needed to get shell's PATH
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (exec-path-from-shell-initialize))
+(add-to-list 'exec-path "/usr/local/bin")
+
 (use-package sublime-themes
   :ensure t
   :demand)
+(load-theme 'brin t)
 
 (use-package evil
   :ensure t
   :bind ("C-x e" . evil-mode))
 
-(use-package scala-mode
-  :ensure t
-  :pin melpa-stable
-  :mode "\\.scala\\'"
-  :interpreter "scala")
-
 (use-package ensime
   :ensure t
-  :pin melpa-stable)
+  :pin melpa-stable
+  :mode "\\.scala\\'")
 
 (use-package sbt-mode
+  :pin melpa-stable
+  :mode "\\.scala\\'")
+
+(use-package python-mode
+  :ensure t
+  :mode "\\.py\\'"
+  :interpreter "Python")
+
+(use-package pyvenv
+  :ensure t
   :pin melpa-stable)
 
-(add-to-list 'exec-path "/usr/local/bin")
+(use-package flycheck
+  :ensure t
+  :diminish flycheck-mode
+  :config
+  (global-flycheck-mode)
+  (setq flycheck-emacs-lisp-load-path 'inherit)
+  (progn
+    (add-to-list 'flycheck-disabled-checkers 'python-flake8)
+    ;; Be sure to set pyvenv-activate in a .dir-locals.el file
+    (add-hook 'python-mode-hook (lambda () (pyvenv-mode 1)))
+    (setq flycheck-pylintrc "pylintrc")))
 
-;; Set emacs environment based on GUI or terminal use
-(defun setup-gui-env()
-  (load-theme 'brin t)
-  (scroll-bar-mode -1)
-  (tool-bar-mode -1))
+
 
 ;;; init.el ends here
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("9b59e147dbbde5e638ea1cde5ec0a358d5f269d27bd2b893a0947c4a867e14c1" default)))
- '(package-selected-packages
-   (quote
-    (ensime yasnippet use-package sublime-themes scala-mode sbt-mode s popup evil dash company))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
