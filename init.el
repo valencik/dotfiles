@@ -84,6 +84,7 @@
   :diminish flycheck-mode
   :config
   (global-flycheck-mode)
+  ;; Make flycheck use current load-path https://stackoverflow.com/a/20522255/5658995
   (setq flycheck-emacs-lisp-load-path 'inherit)
   (progn
     (add-to-list 'flycheck-disabled-checkers 'python-flake8)
