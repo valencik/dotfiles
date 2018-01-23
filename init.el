@@ -22,6 +22,9 @@
 
 ;; global keybindings
 (global-unset-key (kbd "C-z"))
+(global-set-key (kbd "M-%") 'query-replace-regexp)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x C-f") #'helm-find-files)
 
 ;; Make yes/no options accept y/n
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -57,12 +60,14 @@
   :ensure t
   :bind ("C-x e" . evil-mode))
 
-(use-package ensime
+(use-package helm
   :ensure t
   :pin melpa-stable
-  :mode "\\.scala\\'")
+  :config
+  (helm-mode 1))
 
-(use-package sbt-mode
+(use-package ensime
+  :ensure t
   :pin melpa-stable
   :mode "\\.scala\\'")
 
