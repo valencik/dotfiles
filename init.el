@@ -66,9 +66,13 @@
   (helm-mode 1))
 
 (use-package ensime
+  :defer t
   :ensure t
   :pin melpa-stable
-  :mode "\\.scala\\'")
+  :init
+  (setq
+   ensime-startup-notification nil
+   ensime-startup-snapshot-notification nil))
 
 (use-package python-mode
   :ensure t
