@@ -91,7 +91,6 @@
   ;; Make flycheck use current load-path https://stackoverflow.com/a/20522255/5658995
   (setq flycheck-emacs-lisp-load-path 'inherit)
   (progn
-    (add-to-list 'flycheck-disabled-checkers 'python-flake8)
     ;; Be sure to set pyvenv-activate in a .dir-locals.el file
     (add-hook 'python-mode-hook (lambda () (pyvenv-mode 1)))
     (setq flycheck-pylintrc "pylintrc")))
