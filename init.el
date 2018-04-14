@@ -73,6 +73,19 @@
   :config
   (helm-mode 1))
 
+(use-package which-key
+  :config
+  (which-key-mode)
+  (which-key-declare-prefixes
+    "C-c p" "projectile"
+    "C-c &" "yas"
+    "C-c C-b" "ensime-sbt"
+    "C-c C-d" "ensime-db"
+    "C-c C-r" "ensime-refactor"
+    "C-c C-c" "ensime"
+    "C-c C-v" "ensime"
+  ))
+
 (use-package ensime
   :defer t
   :ensure t
