@@ -25,6 +25,7 @@
 (global-set-key (kbd "M-%") 'query-replace-regexp)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x C-f") #'helm-find-files)
+(global-set-key (kbd "C-x C-b") #'helm-buffers-list)
 
 ;; Make yes/no options accept y/n
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -58,6 +59,7 @@
 (defun av-evil-mode-hook-function ()
   "Unset some evil keybindings."
   (define-key evil-normal-state-map (kbd "M-.") nil)
+  (define-key evil-normal-state-map (kbd ";") #'helm-buffers-list)
 )
 (use-package evil
   :ensure t
