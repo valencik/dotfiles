@@ -55,9 +55,15 @@
   :demand)
 (load-theme 'brin t)
 
+(defun av-evil-mode-hook-function ()
+  "Unset some evil keybindings."
+  (define-key evil-normal-state-map (kbd "M-.") nil)
+)
 (use-package evil
   :ensure t
-  :bind ("C-x e" . evil-mode))
+  :bind ("C-x e" . evil-mode)
+  :init
+  (add-hook 'evil-mode-hook 'av-evil-mode-hook-function))
 
 (use-package helm
   :ensure t
