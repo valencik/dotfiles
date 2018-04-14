@@ -51,6 +51,7 @@ reddit () {
   jq --raw-output '.data.children[].data| select(.stickied == false) | [.title, .url, .score, .created] | @tsv'
 }
 msay () {say "$*" -o output && ffmpeg -i output.aiff -y ~/Desktop/output.mp3 && rm output.aiff}
+grab () {cd ~/grabbed && git clone "$1"}
 
 # Enable alt+. in other terminals
 bindkey '\e.' insert-last-word
