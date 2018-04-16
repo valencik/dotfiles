@@ -84,8 +84,16 @@
     "C-c C-d" "ensime-db"
     "C-c C-r" "ensime-refactor"
     "C-c C-c" "ensime"
-    "C-c C-v" "ensime"
-  ))
+    "C-c C-v" "ensime"))
+
+(use-package projectile
+  :demand
+  :init   (setq projectile-use-git-grep t)
+  :config (projectile-global-mode t))
+
+(use-package helm-projectile
+  :ensure t
+  :pin melpa-stable)
 
 (use-package ensime
   :defer t
