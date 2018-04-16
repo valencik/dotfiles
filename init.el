@@ -59,6 +59,7 @@
 (defun av-evil-mode-hook-function ()
   "Unset some evil keybindings."
   (define-key evil-normal-state-map (kbd "M-.") nil)
+  (define-key evil-normal-state-map (kbd "M->") #'ensime-edit-definition-other-window)
   (define-key evil-normal-state-map (kbd ";") #'helm-buffers-list)
 )
 (use-package evil
