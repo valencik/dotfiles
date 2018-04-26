@@ -55,6 +55,7 @@ grab () {cd ~/grabbed && git clone "$1"}
 
 # Enable alt+. in other terminals
 bindkey '\e.' insert-last-word
+bindkey '≥' insert-last-word
 
 # FZF setup
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
