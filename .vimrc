@@ -15,7 +15,6 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-sleuth'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-syntastic/syntastic'
-Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 call plug#end()
 
 set number
