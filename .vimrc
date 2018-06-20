@@ -27,7 +27,7 @@ set tags=./tags,tags,.git/tags;
 set rtp+=/usr/local/opt/fzf
 nmap ; :Buffers<CR>
 nmap <Leader>r :Tags<CR>
-nmap <Leader>t :Files<CR>
+nmap <Leader>t :!tmux send-keys -t 0.1 'dev test' C-m<CR><CR>
 nmap <Leader>g :GFiles<CR>
 
 " Autowrap git commit messages to 72 characters
