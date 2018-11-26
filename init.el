@@ -47,13 +47,11 @@
 
 ;; Needed to get shell's PATH
 (use-package exec-path-from-shell
-  :ensure t
   :config
   (exec-path-from-shell-initialize))
 (add-to-list 'exec-path "/usr/local/bin")
 
 (use-package sublime-themes
-  :ensure t
   :demand)
 (load-theme 'brin t)
 
@@ -64,13 +62,11 @@
   (define-key evil-normal-state-map (kbd ";") #'helm-buffers-list)
 )
 (use-package evil
-  :ensure t
   :bind ("C-x e" . evil-mode)
   :init
   (add-hook 'evil-mode-hook 'av-evil-mode-hook-function))
 
 (use-package org
-  :ensure t
   :mode ("\\.org\\'" . org-mode)
   :bind (("C-c a" . org-agenda))
   :config
@@ -78,7 +74,6 @@
   (org-clock-persistence-insinuate))
 
 (use-package helm
-  :ensure t
   :pin melpa-stable
   :config
   (helm-mode 1))
@@ -101,12 +96,10 @@
   :config (projectile-global-mode t))
 
 (use-package helm-projectile
-  :ensure t
   :pin melpa-stable)
 
 (use-package ensime
   :defer t
-  :ensure t
   :pin melpa-stable
   :init
   (setq
@@ -114,16 +107,13 @@
    ensime-startup-snapshot-notification nil))
 
 (use-package python-mode
-  :ensure t
   :mode "\\.py\\'"
   :interpreter "Python")
 
 (use-package pyvenv
-  :ensure t
   :pin melpa-stable)
 
 (use-package flycheck
-  :ensure t
   :diminish flycheck-mode
   :config
   (global-flycheck-mode)
