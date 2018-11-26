@@ -14,7 +14,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-sleuth'
 Plug 'airblade/vim-gitgutter'
-Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 set number
