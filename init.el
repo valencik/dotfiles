@@ -19,6 +19,7 @@
 (electric-indent-mode 0)
 (show-paren-mode t)
 (global-linum-mode t)
+(winner-mode t)
 
 ;; global keybindings
 (global-unset-key (kbd "C-z"))
