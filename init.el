@@ -7,6 +7,7 @@
  scroll-error-top-bottom t
  show-paren-delay 0.5
  use-package-always-ensure t
+ tags-file-name ".emacs_tags"
  sentence-end-double-space nil)
 
 ;; buffer local variables
