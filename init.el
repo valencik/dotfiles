@@ -68,6 +68,14 @@
   :init
   (add-hook 'evil-mode-hook 'av-evil-mode-hook-function))
 
+(use-package org
+  :ensure t
+  :mode ("\\.org\\'" . org-mode)
+  :bind (("C-c a" . org-agenda))
+  :config
+  (setq org-clock-persist 'history)
+  (org-clock-persistence-insinuate))
+
 (use-package helm
   :ensure t
   :pin melpa-stable
