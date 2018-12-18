@@ -310,13 +310,14 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; Needed to get shell's PATH
   (add-to-list 'exec-path "/usr/local/bin")
 
-  (global-flycheck-mode)
-  ;; Make flycheck use current load-path https://stackoverflow.com/a/20522255/5658995
+  ;; This is crucial to getting python envs working in dev controlled projects
+  ;; Be sure to set pyvenv-activate in a .dir-locals.el file
+  (add-hook 'python-mode-hook (lambda () (pyvenv-mode 1)))
+
+  ;; Make flycheck use current load-path when checking Emacs lisp file
+  ;; https://stackoverflow.com/a/20522255/5658995
   (setq flycheck-emacs-lisp-load-path 'inherit)
-  (progn
-    ;; Be sure to set pyvenv-activate in a .dir-locals.el file
-    (add-hook 'python-mode-hook (lambda () (pyvenv-mode 1)))
-    (setq flycheck-pylintrc "pylintrc"))
+
   )
 
 (defun dotspacemacs/user-config ()
