@@ -79,6 +79,7 @@
   (add-hook 'evil-mode-hook 'av-evil-mode-hook-function))
 
 (use-package org
+  :ensure org-plus-contrib
   :mode ("\\.org\\'" . org-mode)
   :bind (("C-c a" . org-agenda))
   :config
