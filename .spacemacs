@@ -308,9 +308,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
   ;; Needed to get shell's PATH
-  (use-package exec-path-from-shell
-    :config
-    (exec-path-from-shell-initialize))
   (add-to-list 'exec-path "/usr/local/bin")
 
   (global-flycheck-mode)
