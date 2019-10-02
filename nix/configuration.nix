@@ -38,16 +38,24 @@
      fzf
      binutils
      coreutils
+     usbutils
      gcc
+     sbt
      ripgrep
      wget
-     htop
      zip
      unzip
+     jq
+     htop
      firefox
      ffmpeg-full
      mpv
      blender
+     lutris
+     steam
+     mesa
+     mesa_drivers
+     vulkan-tools
    ];
 
   # List services that you want to enable:
@@ -68,6 +76,9 @@
   services.xserver.deviceSection = ''
     Option "TearFree" "true"
   '';
+  hardware.opengl.enable = true;
+  hardware.opengl.driSupport32Bit = true;
+  hardware.pulseaudio.support32Bit = true;
 
   # Compton is a visual compositor that should reduce screen tearing
   services.compton = {
