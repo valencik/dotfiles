@@ -40,6 +40,7 @@
      coreutils
      usbutils
      gcc
+     shellcheck
      sbt
      ripgrep
      wget
@@ -50,6 +51,7 @@
      firefox
      ffmpeg-full
      mpv
+     youtube-dl
      blender
      lutris
      steam
