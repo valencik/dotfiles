@@ -3,13 +3,16 @@
 # Load all stock functions (from $fpath files) called below.
 autoload -U compaudit compinit
 
+# Load zsh settings
+source "$HOME/src/dotfiles/zsh/history.zsh"
+
 # Add gitfast plugin
 fpath=($HOME/src/dotfiles/zsh/plugins/gitfast $fpath)
-source "/home/andrew/src/dotfiles/zsh/plugins/gitfast/gitfast.plugin.zsh"
+source "$HOME/src/dotfiles/zsh/plugins/gitfast/gitfast.plugin.zsh"
 
 # Load theme
 setopt prompt_subst
-source "/home/andrew/src/dotfiles/zsh/themes/sunrise-w-job-count.zsh-theme"
+source "$HOME/src/dotfiles/zsh/themes/sunrise-w-job-count.zsh-theme"
 
 alias ll="ls -l"
 alias sayweather="curl http://dd.weather.gc.ca/citypage_weather/mp3/ON/s0000430_sa_e.mp3 | mpv -"
