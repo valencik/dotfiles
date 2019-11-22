@@ -14,7 +14,9 @@ source "$HOME/src/dotfiles/zsh/plugins/gitfast/gitfast.plugin.zsh"
 setopt prompt_subst
 source "$HOME/src/dotfiles/zsh/themes/sunrise-w-job-count.zsh-theme"
 
-alias ll="ls -l"
+alias l='ls -alh'
+alias ll='ls -l'
+alias ls='ls --color=tty'
 alias sayweather="curl http://dd.weather.gc.ca/citypage_weather/mp3/ON/s0000430_sa_e.mp3 | mpv -"
 alias trimclip="pbpaste | perl -pe 's/^-[0-9]- .* » (.*?) +(\\d+ ↵|$)/\\$ \\1/' | pbcopy"
 alias lock="pmset displaysleepnow"
