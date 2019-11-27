@@ -14,8 +14,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-sleuth'
 Plug 'airblade/vim-gitgutter'
-Plug 'vim-syntastic/syntastic'
-Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 call plug#end()
 
 set number
@@ -28,7 +26,7 @@ set tags=./tags,tags,.git/tags;
 set rtp+=/usr/local/opt/fzf
 nmap ; :Buffers<CR>
 nmap <Leader>r :Tags<CR>
-nmap <Leader>t :Files<CR>
+nmap <Leader>t :!tmux send-keys -t 0.1 'dev test' C-m<CR><CR>
 nmap <Leader>g :GFiles<CR>
 
 " Autowrap git commit messages to 72 characters
