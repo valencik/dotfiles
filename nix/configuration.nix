@@ -17,6 +17,9 @@
 
   # networking.hostName = "nixos"; # Define your hostname.
 
+  # Enable docker as a service
+  virtualisation.docker.enable = true;
+
   # Select internationalisation properties.
   # i18n = {
   #   consoleFont = "Lat2-Terminus16";
@@ -50,6 +53,7 @@
      unzip
      jq
      htop
+     docker
      firefox
      ffmpeg-full
      mpv
@@ -114,7 +118,8 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.andrew = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.zsh;
   };
 
   # Mount disks
