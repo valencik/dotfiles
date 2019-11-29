@@ -39,10 +39,12 @@
      binutils
      coreutils
      usbutils
+     man-pages
      gcc
      shellcheck
      sbt
      ripgrep
+     tor
      wget
      zip
      unzip
