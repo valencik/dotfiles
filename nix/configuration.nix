@@ -43,6 +43,7 @@
      coreutils
      usbutils
      man-pages
+     file
      gcc
      shellcheck
      sbt
@@ -53,6 +54,8 @@
      unzip
      jq
      htop
+     exa
+     ntfs3g
      docker
      firefox
      ffmpeg-full
@@ -64,7 +67,17 @@
      mesa
      mesa_drivers
      vulkan-tools
+     haskellPackages.xmobar
+     linuxPackages.digimend
+     xf86_input_wacom
+     vscode-with-extensions
+     mupdf
+     darktable
+     discord
    ];
+
+  # Huion table
+  #services.xserver.digimend.enable = true;
 
   # List services that you want to enable:
   nixpkgs.config.allowUnfree = true;
@@ -77,6 +90,9 @@
     enable = true;
     web.enable = true;
   };
+
+  # Enable the OpenSSH daemon.
+  services.openssh.enable = true;
 
   # Setup GPU drivers
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -93,27 +109,33 @@
     enable = true;
   };
 
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  # Enable the X11 windowing system.
+  services.xserver = {
+    enable = true;
+    layout = "us";
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+    desktopManager = {
+      gnome3.enable = true;
+    };
+
+    displayManager = {
+      defaultSession = "gnome";
+    };
+
+    windowManager.xmonad = {
+      enable = true;
+      enableContribAndExtras = true;
+      extraPackages = haskellPackages: [
+        haskellPackages.xmonad-contrib
+        haskellPackages.xmonad-extras
+        haskellPackages.xmonad
+      ];
+    };
+  };
 
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e";
-
-  # Enable the Desktop Environment.
-  services.xserver.desktopManager = {
-    xfce.enable = true;
-    default = "xfce";
-  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.andrew = {
