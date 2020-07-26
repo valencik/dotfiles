@@ -68,7 +68,6 @@
      mesa
      mesa_drivers
      vulkan-tools
-     haskellPackages.xmobar
      linuxPackages.digimend
      xf86_input_wacom
      vscode-with-extensions
@@ -123,15 +122,6 @@
       defaultSession = "gnome";
     };
 
-    windowManager.xmonad = {
-      enable = true;
-      enableContribAndExtras = true;
-      extraPackages = haskellPackages: [
-        haskellPackages.xmonad-contrib
-        haskellPackages.xmonad-extras
-        haskellPackages.xmonad
-      ];
-    };
   };
 
   # Enable sound.
