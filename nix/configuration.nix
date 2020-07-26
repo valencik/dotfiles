@@ -62,6 +62,7 @@
      mpv
      youtube-dl
      blender
+     godot
      lutris
      steam
      mesa
