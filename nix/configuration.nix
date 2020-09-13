@@ -68,16 +68,15 @@
      mesa
      mesa_drivers
      vulkan-tools
-     linuxPackages.digimend
-     xf86_input_wacom
      vscode-with-extensions
      mupdf
      darktable
      discord
    ];
 
-  # Huion table
-  #services.xserver.digimend.enable = true;
+  # Huion New 1060 Plus
+  # Supported via digimend-kernel-drivers
+  services.xserver.wacom.enable = true;  # default true
 
   # List services that you want to enable:
   nixpkgs.config.allowUnfree = true;
