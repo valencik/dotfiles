@@ -10,25 +10,40 @@
       ./hardware-configuration.nix
     ];
 
-  # Use the GRUB 2 boot loader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
-  boot.loader.grub.device = "/dev/sdb";
+  # Enable newer nix
+  nix = {
+    package = pkgs.nixFlakes;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
+
+
+  # Use the systemd-boot EFI boot loader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   # networking.hostName = "nixos"; # Define your hostname.
 
-  # Enable docker as a service
-  virtualisation.docker.enable = true;
-
-  # Select internationalisation properties.
-  # i18n = {
-  #   consoleFont = "Lat2-Terminus16";
-  #   consoleKeyMap = "us";
-  #   defaultLocale = "en_US.UTF-8";
-  # };
-
   # Set your time zone.
   time.timeZone = "America/Toronto";
+
+  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
+  # Per-interface useDHCP will be mandatory in the future, so this generated config
+  # replicates the default behaviour.
+  networking.useDHCP = false;
+  networking.interfaces.enp3s0.useDHCP = true;
+
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
+
+  # Enable the GNOME Desktop Environment.
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+
+  # Enable sound.
+  sound.enable = true;
+  hardware.pulseaudio.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -44,36 +59,18 @@
      usbutils
      man-pages
      file
-     gcc
-     shellcheck
-     sbt
      ripgrep
-     tor
      wget
      zip
      unzip
      jq
      htop
      exa
-     ntfs3g
-     docker
-     firefox
-     ffmpeg-full
-     mpv
-     youtube-dl
-     blender
-     godot
-     lutris
-     steam
-     mesa
-     mesa_drivers
-     vulkan-tools
-     vscode-with-extensions
-     mupdf # fast pdf reader
-     darktable
-     discord
      rlwrap # rlwrap adds readline functionality to tools without it like idris repl
      nix-prefetch-github # get sha256, e.g. 'nix-prefetch-github --rev v0.2.0 idris-lang Idris2'
+     clinfo # for confirming OpenCL driver install
+     rocm-opencl-icd # Enable OpenCL for AMD GPUs in Blender
+     firefox
    ];
 
   # Huion New 1060 Plus
@@ -88,6 +85,7 @@
   };
 
   services.deluge = {
+    package = pkgs.deluge-2_x;
     enable = true;
     web.enable = true;
   };
@@ -95,40 +93,14 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  # Setup GPU drivers
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  services.xserver.videoDrivers = [ "amdgpu" ];
-  services.xserver.deviceSection = ''
-    Option "TearFree" "true"
-  '';
-  hardware.opengl.enable = true;
-  hardware.opengl.driSupport32Bit = true;
-  hardware.pulseaudio.support32Bit = true;
+  # Enable docker as a service
+  virtualisation.docker.enable = true;
 
-  # Compton is a visual compositor that should reduce screen tearing
-  services.compton = {
-    enable = true;
-  };
-
-  # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    layout = "us";
-
-    desktopManager = {
-      gnome3.enable = true;
-    };
-
-    displayManager = {
-      defaultSession = "gnome";
-      gdm.enable = true;
-    };
-
-  };
-
-  # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  # networking.firewall.enable = false;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.andrew = {
@@ -147,10 +119,13 @@
     fsType = "ext4";
   };
 
-  # This value determines the NixOS release with which your system is to be
-  # compatible, in order to avoid breaking some software such as database
-  # servers. You should change this only after NixOS release notes say you
-  # should.
-  system.stateVersion = "19.03"; # Did you read the comment?
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "21.05"; # Did you read the comment?
 
 }
+
