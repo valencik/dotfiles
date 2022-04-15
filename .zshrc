@@ -7,8 +7,8 @@ autoload -U compaudit compinit
 source "$HOME/src/dotfiles/zsh/history.zsh"
 
 # Add gitfast plugin
-fpath=($HOME/src/dotfiles/zsh/plugins/gitfast $fpath)
-source "$HOME/src/dotfiles/zsh/plugins/gitfast/gitfast.plugin.zsh"
+#fpath=($HOME/src/dotfiles/zsh/plugins/gitfast $fpath)
+#source "$HOME/src/dotfiles/zsh/plugins/gitfast/gitfast.plugin.zsh"
 
 # Load theme
 setopt prompt_subst
