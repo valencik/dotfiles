@@ -41,6 +41,9 @@ reddit () {
 msay () {say "$*" -o output && ffmpeg -i output.aiff -y ~/Desktop/output.mp3 && rm output.aiff}
 grab () {cd ~/grabbed && git clone "$1"}
 
+# Enable direnv
+eval "$(direnv hook zsh)"
+
 # Enable alt+. in other terminals
 bindkey '\e.' insert-last-word
 
