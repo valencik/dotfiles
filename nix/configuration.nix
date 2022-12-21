@@ -112,6 +112,10 @@
   # Enable docker as a service
   virtualisation.docker.enable = true;
 
+  # Enable virtualbox
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = ["andrew"];
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
