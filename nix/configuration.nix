@@ -106,6 +106,9 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+  # Enable flatpak
+  services.flatpak.enable = true;
+
   # Enable docker as a service
   virtualisation.docker.enable = true;
 
