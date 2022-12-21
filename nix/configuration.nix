@@ -12,7 +12,6 @@
 
   # Enable newer nix
   nix = {
-    package = pkgs.nix_2_7;
     extraOptions = ''
       experimental-features = nix-command flakes
       # nix-direnv: protecct nix-shell from gc
