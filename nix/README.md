@@ -10,3 +10,11 @@ I checked out a commit prior to the recent build failures and then ran the follo
 ```sh
 nixos-rebuild -I nixpkgs=/path/to/nixpkgs boot
 ```
+
+# Full `/boot`
+
+```
+sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +2
+sudo nix-collect-garbage
+sudo nixos-rebuild boot
+```
