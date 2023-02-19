@@ -48,9 +48,25 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # Enable the XFCE desktop env
+  services.xserver.desktopManager.xfce.enable = true;
+  services.xserver.displayManager.defaultSession = "xfce";
+
+  # # Enable the GNOME Desktop Environment.
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
+
+  # Hopefully to enable Tuple via flatpak
+  # https://matthewrhone.dev/nixos-package-guide#enabling-flatpak
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+      ];
+      gtkUsePortal = true;
+    };
+  };
 
   # Enable sound.
   sound.enable = true;
@@ -125,7 +141,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.andrew = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "docker" "input" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
   };
 
