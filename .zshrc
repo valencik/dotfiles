@@ -40,6 +40,7 @@ reddit () {
 }
 msay () {say "$*" -o output && ffmpeg -i output.aiff -y ~/Desktop/output.mp3 && rm output.aiff}
 grab () {cd ~/grabbed && git clone "$1"}
+gpr () {git fetch origin "pull/$1/head:pr$1" && git checkout "pr$1"}
 
 # Enable direnv
 eval "$(direnv hook zsh)"
