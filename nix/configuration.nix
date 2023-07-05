@@ -64,7 +64,6 @@
       extraPortals = with pkgs; [
         xdg-desktop-portal-gtk
       ];
-      gtkUsePortal = true;
     };
   };
 
@@ -117,6 +116,13 @@
     package = pkgs.deluge-2_x;
     enable = true;
     web.enable = true;
+  };
+
+  # Steam
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 
   # Enable the OpenSSH daemon.
