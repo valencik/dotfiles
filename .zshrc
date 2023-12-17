@@ -29,6 +29,7 @@ alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
 # Function
+plexc () {cp --recursive --link "$*" /bigdata/plexmas/}
 plexm () {cp --recursive --link "$*" /bigdata/plexmovies/}
 plext () {cp --recursive --link "$*" /bigdata/plextv/}
 sus () {sort $* | uniq -c | sort -nr}
