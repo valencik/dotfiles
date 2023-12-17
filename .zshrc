@@ -14,6 +14,7 @@ source "$HOME/src/dotfiles/zsh/history.zsh"
 setopt prompt_subst
 source "$HOME/src/dotfiles/zsh/themes/sunrise-w-job-count.zsh-theme"
 
+alias tt='tmux attach'
 alias l='exa --long'
 alias ll='exa --binary --header --long'
 alias la='exa --all --long'
