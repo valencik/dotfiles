@@ -127,6 +127,10 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.openssh.settings = {
+    UseDns = true;
+    GSSAPIAuthentication = false;
+  };
 
   # Enable flatpak
   services.flatpak.enable = true;
@@ -140,7 +144,10 @@
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
+    4000
+    4242
     6881
+    9999
   ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
@@ -152,6 +159,14 @@
     extraGroups = [ "wheel" "docker" "input" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
   };
+  users.users.tester = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" "docker" "input" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.zsh;
+  };
+
+  # enable nix directories in zsh PATH
+  programs.zsh.enable = true;
 
   # Mount disks
   fileSystems."/bigdata" = {
