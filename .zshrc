@@ -15,10 +15,10 @@ setopt prompt_subst
 source "$HOME/src/dotfiles/zsh/themes/sunrise-w-job-count.zsh-theme"
 
 alias tt='tmux attach'
-alias l='exa --long'
-alias ll='exa --binary --header --long'
-alias la='exa --all --long'
-alias lg='exa --all --long --git-ignore'
+alias l='eza --long'
+alias ll='eza --binary --header --long'
+alias la='eza --all --long'
+alias lg='eza --all --long --git-ignore'
 alias sayweather="curl http://dd.weather.gc.ca/citypage_weather/mp3/ON/s0000430_sa_e.mp3 | mpv -"
 alias trimclip="pbpaste | perl -pe 's/^-[0-9]- .* » (.*?) +(\\d+ ↵|$)/\\$ \\1/' | pbcopy"
 alias lock="pmset displaysleepnow"

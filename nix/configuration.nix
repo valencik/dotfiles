@@ -91,7 +91,7 @@
      unzip
      jq
      htop
-     exa
+     eza
      rlwrap # rlwrap adds readline functionality to tools without it like idris repl
      nix-prefetch-github # get sha256, e.g. 'nix-prefetch-github --rev v0.2.0 idris-lang Idris2'
      clinfo # for confirming OpenCL driver install
