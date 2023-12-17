@@ -10,25 +10,6 @@
       ./hardware-configuration.nix
     ];
 
-  # Enable newer nix
-  nix = {
-    extraOptions = ''
-      experimental-features = nix-command flakes
-      # nix-direnv: protecct nix-shell from gc
-      keep-derivations = true
-      keep-outputs = true
-    '';
-  };
-
-  # nix-direnv setup
-  environment.pathsToLink = [
-    "/share/nix-direnv"
-  ];
-  # support nix flakes
-  nixpkgs.overlays = [
-    (self: super: { nix-direnv = super.nix-direnv.override { enableFlakes = true; }; } )
-  ];
-
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -97,8 +78,6 @@
      clinfo # for confirming OpenCL driver install
      rocm-opencl-icd # Enable OpenCL for AMD GPUs in Blender
      firefox
-     direnv
-     nix-direnv
    ];
 
   # Huion New 1060 Plus
@@ -116,6 +95,11 @@
     package = pkgs.deluge-2_x;
     enable = true;
     web.enable = true;
+  };
+
+  # nix-direnv
+  programs.direnv = {
+    enable = true;
   };
 
   # Steam
