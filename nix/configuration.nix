@@ -126,6 +126,12 @@
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = ["andrew"];
 
+  # setup gnupg
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
+
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
     4000
