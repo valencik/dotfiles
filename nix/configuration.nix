@@ -6,8 +6,12 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
+
+      # Include media setup
+      ./media.nix
     ];
 
 
@@ -39,6 +43,8 @@
 
   # Enable nix features
   nix.settings.experimental-features = "nix-command flakes";
+
+  nixpkgs.config.allowUnfree = true;
 
   # Hopefully to enable Tuple via flatpak
   # https://matthewrhone.dev/nixos-package-guide#enabling-flatpak
@@ -87,18 +93,6 @@
   # Supported via digimend-kernel-drivers
   services.xserver.wacom.enable = true;  # default true
 
-  # List services that you want to enable:
-  nixpkgs.config.allowUnfree = true;
-  services.plex = {
-    enable = true;
-    openFirewall = true;
-  };
-
-  services.deluge = {
-    package = pkgs.deluge-2_x;
-    enable = true;
-    web.enable = true;
-  };
 
   # nix-direnv
   programs.direnv = {
