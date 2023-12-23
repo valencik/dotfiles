@@ -1,47 +1,37 @@
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-ZSH_THEME="sunrise-w-job-count"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(gitfast)
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-me=$(whoami)
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
-export PERSONALPATH="/Users/$me/bin:/Users/$me/.cargo/bin"
-export PATH="$PATH:$PERSONALPATH"
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
+# Originally a oh-my-zsh setup
 #
+# Load all stock functions (from $fpath files) called below.
+autoload -U compaudit compinit
 
-# Aliases
-alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
+# Load zsh settings
+source "$HOME/src/dotfiles/zsh/history.zsh"
 
+# Add gitfast plugin
+#fpath=($HOME/src/dotfiles/zsh/plugins/gitfast $fpath)
+#source "$HOME/src/dotfiles/zsh/plugins/gitfast/gitfast.plugin.zsh"
+
+# Load theme
+setopt prompt_subst
+source "$HOME/src/dotfiles/zsh/themes/sunrise-w-job-count.zsh-theme"
+
+alias tt='tmux attach'
+alias l='eza --long'
+alias ll='eza --binary --header --long'
+alias la='eza --all --long'
+alias lg='eza --all --long --git-ignore'
 alias sayweather="curl http://dd.weather.gc.ca/citypage_weather/mp3/ON/s0000430_sa_e.mp3 | mpv -"
 alias trimclip="pbpaste | perl -pe 's/^-[0-9]- .* » (.*?) +(\\d+ ↵|$)/\\$ \\1/' | pbcopy"
 alias lock="pmset displaysleepnow"
 alias gctags="git ls-files | /usr/local/opt/universal-ctags/bin/ctags --extras=+f -L-"
 
 alias gpsup='git push --set-upstream origin $(git_current_branch)'
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
 
 # Function
+plexc () {cp --recursive --link "$*" /bigdata/plexmas/}
+plexm () {cp --recursive --link "$*" /bigdata/plexmovies/}
+plext () {cp --recursive --link "$*" /bigdata/plextv/}
 sus () {sort $* | uniq -c | sort -nr}
 jql () {jq -C "." <$* | less}
 got () {cowsay "got $*?"}
@@ -52,6 +42,10 @@ reddit () {
 }
 msay () {say "$*" -o output && ffmpeg -i output.aiff -y ~/Desktop/output.mp3 && rm output.aiff}
 grab () {cd ~/grabbed && git clone "$1"}
+gpr () {git fetch origin "pull/$1/head:pr$1" && git checkout "pr$1"}
+
+# Enable direnv
+eval "$(direnv hook zsh)"
 
 # Enable alt+. in other terminals
 bindkey '\e.' insert-last-word
@@ -60,12 +54,5 @@ bindkey '≥' insert-last-word
 # FZF setup
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# golang setup
-export GOPATH=$HOME/golang
-export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOPATH/bin
-
+# Work setup if present
 [ -f ~/.workrc ] && source ~/.workrc
-
-# Starting directory
-cd ~/projects/

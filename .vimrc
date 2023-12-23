@@ -7,23 +7,30 @@ endif
 
 " Define plugins
 call plug#begin('~/.vim/plugged')
-Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-sleuth'
 Plug 'airblade/vim-gitgutter'
+Plug 'edwinb/idris2-vim'
 call plug#end()
+
+" Set local leader to "\\"
+let maplocalleader="\\\\"
 
 set number
 set relativenumber
+
+" set background colour of folds
+highlight Folded ctermbg=DarkGrey
 
 " Setup tags
 set tags=./tags,tags,.git/tags;
 
 " Enable fzf in vim
-set rtp+=/usr/local/opt/fzf
+" set rtp+=/usr/local/opt/fzf
 nmap ; :Buffers<CR>
 nmap <Leader>r :Tags<CR>
 nmap <Leader>t :!tmux send-keys -t 0.1 'dev test' C-m<CR><CR>
