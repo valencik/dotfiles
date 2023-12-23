@@ -37,6 +37,9 @@
   # services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
 
+  # Enable nix features
+  nix.settings.experimental-features = "nix-command flakes";
+
   # Hopefully to enable Tuple via flatpak
   # https://matthewrhone.dev/nixos-package-guide#enabling-flatpak
   xdg = {
