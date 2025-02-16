@@ -39,7 +39,7 @@
 
   # Enable the XFCE desktop env
   services.xserver.desktopManager.xfce.enable = true;
-  services.xserver.displayManager.defaultSession = "xfce";
+  services.displayManager.defaultSession = "xfce";
 
   # # Enable the GNOME Desktop Environment.
   # services.xserver.displayManager.gdm.enable = true;
@@ -60,10 +60,6 @@
       ];
     };
   };
-
-  # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -89,8 +85,10 @@
      rlwrap # rlwrap adds readline functionality to tools without it like idris repl
      nix-prefetch-github # get sha256, e.g. 'nix-prefetch-github --rev v0.2.0 idris-lang Idris2'
      clinfo # for confirming OpenCL driver install
-     rocm-opencl-icd # Enable OpenCL for AMD GPUs in Blender
+     # rocm-opencl-icd # Enable OpenCL for AMD GPUs in Blender
      firefox
+     lmms
+     ardour
    ];
 
   # Huion New 1060 Plus
