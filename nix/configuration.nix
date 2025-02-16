@@ -30,6 +30,10 @@
   networking.useDHCP = false;
   networking.interfaces.enp3s0.useDHCP = true;
 
+  # try and increase file limut for systemd
+  # trying to prevent "too many open files" in deluged
+  systemd.user.extraConfig = "DefaultLimitNOFILE=32000";
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
