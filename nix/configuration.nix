@@ -166,6 +166,10 @@
     device = "/dev/disk/by-label/tib";
     fsType = "ext4";
   };
+  fileSystems."/mediadata" = {
+    device = "/dev/disk/by-label/media";
+    fsType = "ext4";
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
