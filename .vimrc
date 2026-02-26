@@ -8,13 +8,9 @@ endif
 " Define plugins
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-sleuth'
-Plug 'airblade/vim-gitgutter'
-Plug 'edwinb/idris2-vim'
+Plug 'junegunn/fzf.vim'   " fzf fuzzy finder
+Plug 'tpope/vim-sensible' " Defaults
+Plug 'tpope/vim-sleuth'   " Heuristically set buffer options
 call plug#end()
 
 " Set local leader to "\\"
@@ -36,7 +32,6 @@ let g:fzf_preview_window = ['down:80%']
 
 nmap ; :Buffers<CR>
 nmap <Leader>r :Tags<CR>
-nmap <Leader>t :!tmux send-keys -t 0.1 'dev test' C-m<CR><CR>
 nmap <Leader>g :GFiles<CR>
 
 " Autowrap git commit messages to 72 characters
