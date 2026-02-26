@@ -31,7 +31,7 @@ set tags=./tags,tags,.git/tags;
 
 " Enable fzf in vim
 " set rtp+=/usr/local/opt/fzf
-nmap ; :Buffers<CR>
+nmap ; :call fzf#vim#buffers('', fzf#vim#with_preview('down:80%'), 0)<CR>
 nmap <Leader>r :Tags<CR>
 nmap <Leader>t :!tmux send-keys -t 0.1 'dev test' C-m<CR><CR>
 nmap <Leader>g :GFiles<CR>
